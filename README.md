@@ -18,7 +18,9 @@ sudo snap install --classic code
 sudo apt install ros-humble-joint-state-publisher-gui ros-humble-gazebo-ros2-control joystick jstest-gtk evtest
 <br>
 ~/dev_ws/src$ git clone -b humble https://github.com/ros-controls/gazebo_ros2_control
+<br>
 cp /opt/ros/humble/share/nav2_bringup/launch/navigation_launch.py src/articubot_humble/launch/navigation_launch.py
+<br>
 cp /opt/ros/humble/share/nav2_bringup/params/nav2_params.yaml src/articubot_humble/config/nav2_params.yaml
 
 ### robot_ws
