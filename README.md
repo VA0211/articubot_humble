@@ -48,17 +48,17 @@ Run SLAM: ros2 launch articubot_humble online_async_launch.py use_sim_time:=true
 
 Run Nav2:
 
-Run Localization with amcl:
-~Tab 1~
+Run Localization with amcl: <br>
+~~~Tab 1~~~
 ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=my_map_save.yaml
 
-~Tab 2~
+~~~Tab 2~~~
 ros2 run nav2_util lifecycle_bringup map_server
 
-~Tab 3~
+~~~Tab 3~~~
 ros2 run nav2_amcl amcl --ros-args -p use_sim_time:=true
 
-~Tab 2~
+~~~Tab 2~~~
 ros2 run nav2_util lifecycle_bringup amcl
 
 ---
