@@ -60,9 +60,9 @@ Run slam_toolbox:
 ros2 launch slam_toolbox online_async_launch.py params_file:=./src/articubot_humble/config/mapper_params_online_async.yaml use_sim_time:=true
 ~~~
 
-Run SLAM: 
+Run Localization with slam_toolbox: 
 ~~~
-ros2 launch articubot_humble online_async_launch.py use_sim_time:=true
+ros2 launch slam_toolbox localization_launch.py params_file:=./src/articubot_humble/config/mapper_params_online_async.yaml use_sim_time:=true
 ~~~
 
 Run Nav2: 
@@ -78,13 +78,13 @@ Run Localization and Nav2 with amcl:
 
 ros2 run rviz2 rviz2 -d src/articubot_humble/config/map.rviz --ros-args -p use_sim_time:=true
 
-ros2 launch nav2_bringup localization_launch.py map:=./my_map_save.yaml use_sim_time:=true
+ros2 launch articubot_humble localization_launch.py map:=./my_map_save.yaml use_sim_time:=true
 
 # Then choose 2D Pose Estimate to give the AGV position
 
 #Nav2:
 
-ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true map_subscribe_transient_local:=true
+ros2 launch articubot_humble navigation_launch.py use_sim_time:=true map_subscribe_transient_local:=true
 
 ~~~
 
