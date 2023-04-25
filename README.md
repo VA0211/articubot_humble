@@ -70,17 +70,20 @@ Run Nav2:
 ros2 launch articubot_humble navigation_launch.py use_sim_time:=true
 ~~~
 
-Run Localization with amcl:
+Run Localization and Nav2 with amcl:
 ~~~
-ros2 launch nav2_bringup localization_launch.py map:=./y_map_save.yaml use_sim_time:=true
-
-#Rerun Gazebo (same cmd) and Rviz with:
+# Run Gazebo (same cmd) and Rviz with:
 # Fixed frame: map (if don't have in the dropdown then just type in yourself)
 # Map --> Topic --> Reliability Policy: Reliable, Durability Policy: Transient Local
 
-ros2 run rviz2 rviz2 -d src/articubot_humble/config/localization.rviz --ros-args -p use_sim_time:=true
+ros2 run rviz2 rviz2 -d src/articubot_humble/config/map.rviz --ros-args -p use_sim_time:=true
+
+ros2 launch nav2_bringup localization_launch.py map:=./my_map_save.yaml use_sim_time:=true
 
 # Then choose 2D Pose Estimate to give the AGV position
+
+#Nav2:
+ros2 launch articubot_humble navigation_launch.py use_sim_time:=true map_subscribe_transient_local:=true
 
 ~~~
 
