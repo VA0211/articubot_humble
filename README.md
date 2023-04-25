@@ -83,7 +83,8 @@ ros2 launch nav2_bringup localization_launch.py map:=./my_map_save.yaml use_sim_
 # Then choose 2D Pose Estimate to give the AGV position
 
 #Nav2:
-ros2 launch articubot_humble navigation_launch.py use_sim_time:=true map_subscribe_transient_local:=true
+
+ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true map_subscribe_transient_local:=true
 
 ~~~
 
