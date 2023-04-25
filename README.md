@@ -72,17 +72,7 @@ ros2 launch articubot_humble navigation_launch.py use_sim_time:=true
 
 Run Localization with amcl:
 ~~~
-#Tab 1
-ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=my_map_save.yaml
-
-#Tab 2
-ros2 run nav2_util lifecycle_bringup map_server
-
-#Tab 3
-ros2 run nav2_amcl amcl --ros-args -p use_sim_time:=true
-
-#Tab 2
-ros2 run nav2_util lifecycle_bringup amcl
+ros2 launch nav2_bringup localization_launch.py map:=./y_map_save.yaml use_sim_time:=true
 
 #Rerun Gazebo (same cmd) and Rviz with:
 # Fixed frame: map (if don't have in the dropdown then just type in yourself)
