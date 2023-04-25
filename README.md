@@ -57,12 +57,8 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/di
 
 Run slam_toolbox:
 ~~~
-ros2 launch slam_toolbox online_async_launch.py params_file:=./src/articubot_humble/config/mapper_params_online_async.yaml use_sim_time:=true
-~~~
+ros2 launch articubot_humble online_async_launch.py params_file:=./src/articubot_humble/config/mapper_params_online_async.yaml use_sim_time:=true
 
-Run Localization with slam_toolbox: 
-~~~
-ros2 launch slam_toolbox localization_launch.py params_file:=./src/articubot_humble/config/mapper_params_online_async.yaml use_sim_time:=true
 ~~~
 
 Run Nav2: 
