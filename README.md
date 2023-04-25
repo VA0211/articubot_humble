@@ -17,7 +17,7 @@ sudo apt install git python3-colcon-common-extensions ros-humble-xacro ros-humbl
 ### dev_ws
 ~~~
 sudo snap install --classic code
-sudo apt install ros-humble-joint-state-publisher-gui ros-humble-gazebo-ros2-control joystick jstest-gtk evtest
+sudo apt install ros-humble-joint-state-publisher-gui ros-humble-gazebo-ros2-control joystick jstest-gtk evtest ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-twist-mux
 
 ~/dev_ws/src$ git clone -b humble https://github.com/ros-controls/gazebo_ros2_control
 
@@ -65,7 +65,10 @@ Run SLAM:
 ros2 launch articubot_humble online_async_launch.py use_sim_time:=true
 ~~~
 
-Run Nav2:
+Run Nav2: 
+~~~
+ros2 launch articubot_humble navigation_launch.py use_sim_time:=true
+~~~
 
 Run Localization with amcl:
 ~~~
@@ -80,6 +83,15 @@ ros2 run nav2_amcl amcl --ros-args -p use_sim_time:=true
 
 #Tab 2
 ros2 run nav2_util lifecycle_bringup amcl
+
+#Rerun Gazebo (same cmd) and Rviz with:
+# Fixed frame: map (if don't have in the dropdown then just type in yourself)
+# Map --> Topic --> Reliability Policy: Reliable, Durability Policy: Transient Local
+
+ros2 run rviz2 rviz2 -d src/articubot_humble/config/localization.rviz --ros-args -p use_sim_time:=true
+
+# Then choose 2D Pose Estimate to give the AGV position
+
 ~~~
 
 ---
